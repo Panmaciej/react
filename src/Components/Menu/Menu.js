@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 function Menu() {
   return (
     <nav>
-      <Link to="/overview">Overview</Link>
-      <Link to="/">Currencies</Link>
-      <Link to="/contact">Contact</Link>
+      <NavLink to="/overview">Overview</NavLink>
+      <NavLink to="/">Currencies</NavLink>
+      <NavLink to="/contact">Contact</NavLink>
     </nav>
   );
 }

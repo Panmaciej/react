@@ -1,5 +1,9 @@
 Test project to study react.
 
+Please support by tipping and downloading Brave Browser:
+
+https://brave.com/pan416
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
