@@ -3,18 +3,25 @@ import axios from "axios";
 import "./Coinlist.css";
 
 function CoinList() {
+  const [global, setGlobal] = useState([]);
   const [currencies, setCurrencies] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchGlobalData = async () => {
+      const result = await axios("https://api.coinpaprika.com/v1/global");
+      setGlobal(result.data);
+    };
+    const fetchCoinsData = async () => {
       const result = await axios("https://api.coinpaprika.com/v1/coins");
       setCurrencies(result.data);
     };
-    fetchData();
+    fetchGlobalData();
+    fetchCoinsData();
   }, []);
   console.log(currencies);
   return (
     <div className="m-coinlist-cointainer">
       CoinList
+      <p>MARKET CAP: {global.market_cap_usd}</p>
       <table>
         <thead>
           <tr>
