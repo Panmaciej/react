@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Coinlist.css";
 
-class CoinList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  componentDidMount() {
-    fetch("https://api.coinpaprika.com/v1/coins")
-      .then(res => res.json())
-      .then(json => this.setState({ currencies: json.results }));
-  }
-  render() {
-    return <div className="m-coinlist-cointainer">CoinList</div>;
-  }
+function CoinList() {
+  const [currencies, setCurrencies] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("https://api.coinpaprika.com/v1/coins");
+      setCurrencies(result.data);
+    };
+    fetchData();
+  }, []);
+  console.log(currencies);
+  return (
+    <div className="m-coinlist-cointainer">
+      CoinList
+      <ul>
+        {currencies.slice(0, 100).map(item => (
+          <li key={item.id}>
+            <p>{item.name}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default CoinList;
