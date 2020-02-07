@@ -15,13 +15,22 @@ function CoinList() {
   return (
     <div className="m-coinlist-cointainer">
       CoinList
-      <ul>
-        {currencies.slice(0, 100).map(item => (
-          <li key={item.id}>
-            <p>{item.name}</p>
-          </li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currencies.slice(0, 100).map(item => (
+            <tr key={item.id}>
+              <td>{item.rank}</td>
+              <td>{item.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
