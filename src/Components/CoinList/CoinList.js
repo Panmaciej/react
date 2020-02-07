@@ -7,9 +7,9 @@ class CoinList extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    fetch("https://randomuser.me/api/?format=json&results=10")
+    fetch("https://api.coinpaprika.com/v1/coins")
       .then(res => res.json())
-      .then(json => this.setState({ contacts: json.results }));
+      .then(json => this.setState({ currencies: json.results }));
   }
   render() {
     return <div className="m-coinlist-cointainer">CoinList</div>;
