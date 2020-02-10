@@ -7,12 +7,12 @@ function CoinList() {
   const [currencies, setCurrencies] = useState([]);
   useEffect(() => {
     const fetchGlobalData = async () => {
-      const result = await axios("https://api.coinpaprika.com/v1/global");
+      const result = await axios("http://localhost:8000/global");
       setGlobal(result.data);
     };
     const fetchCoinsData = async () => {
-      const result = await axios("https://api.coinpaprika.com/v1/coins");
-      setCurrencies(result.data);
+      const result = await axios("http://localhost:8000/overview");
+      setCurrencies(result.data.coins);
     };
     fetchGlobalData();
     fetchCoinsData();
