@@ -1,4 +1,4 @@
-Test project to study react.
+Project to create dashboard of coins and other solutions for crypto.
 
 Please support by tipping and downloading Brave Browser:
 
