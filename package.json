@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.9.5",
+    "@material-ui/core": "^4.9.12",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "casual": "^1.6.2",
+    "json-server": "^0.16.1",
     "mock-json-server": "^1.3.5",
     "npm-run-all": "^4.1.5",
     "react": "^16.12.0",
@@ -16,8 +19,8 @@
   },
   "scripts": {
     "start": "npx npm-run-all --parallel start:*",
-    "start:mock": "npx mock-json-server mock/data.json",
     "start:react": "react-scripts start",
+    "start:mockjs": "node ./mock/index.js",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

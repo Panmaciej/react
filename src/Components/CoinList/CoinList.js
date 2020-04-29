@@ -16,11 +16,11 @@ function CoinList() {
   const [currencies, setCurrencies] = useState([]);
   useEffect(() => {
     const fetchGlobalData = async () => {
-      const result = await axios("http://localhost:8000/global");
+      const result = await axios.get("http://localhost:3001/global");
       setGlobal(result.data);
     };
     const fetchCoinsData = async () => {
-      const result = await axios("http://localhost:8000/overview");
+      const result = await axios.get("http://localhost:3001/overview");
       setCurrencies(result.data.coins);
     };
     fetchGlobalData();
@@ -41,8 +41,6 @@ function CoinList() {
             <TableCell>24h</TableCell>
             <TableCell>7d</TableCell>
             <TableCell>Volume (24h)</TableCell>
-            <TableCell>Liquidity</TableCell>
-            <TableCell>Market Cap</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,6 +48,10 @@ function CoinList() {
             <TableRow key={item.id}>
               <TableCell>{item.rank}</TableCell>
               <TableCell>{item.name}</TableCell>
+              <TableCell>{Math.floor(Math.random() * 200 ) - 100}%</TableCell>
+              <TableCell>{Math.floor(Math.random() * 200 ) - 100}%</TableCell>
+              <TableCell>{Math.floor(Math.random() * 200 ) - 100}%</TableCell>
+              <TableCell>${Math.floor(Math.random() * 20000 )}</TableCell>
             </TableRow>
           ))}
         </TableBody>

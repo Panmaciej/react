@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./Components/Header/Header";
 import Menu from "./Components/Menu/Menu";
 import Contact from "./Components/Contact/Contact";
 import CoinList from "./Components/CoinList/CoinList";
@@ -12,7 +11,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Menu />
-          <Header />
         </div>
         <Route exact path="/" component={CoinList} />
         <Route path="/overview" component={Overview} />
